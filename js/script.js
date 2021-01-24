@@ -90,19 +90,20 @@ const randomBackGroundColor = () => {
 const printQuote = () => {
   randomBackGroundColor();
   quote = getRandomQuote(quotes); // gets a random quote by using our getRandomQuote method on the quotes array. 
-  document.querySelector(".quote").innerHTML = quote.quote;
-  // <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span><span class="tag">Motivation</span></p>
-  document.querySelector(".source").innerHTML = 
-  `
-  ${quote.source} 
-  <span class ="citation">${quote.citation? quote.citation: "" }</span>
-  <span class = "year">${quote.year? quote.year: ""}</span>
-  <span class = "tag">tag: ${quote.tag}</span>
-  `; 
   
-  
+  let quoteToPrint = `<p class="quote"> ${quote.quote} </p>
+                      <p class="source"> ${quote.source}`;
 
-  
+  if (quote.citation) {
+    quoteToPrint += `<span class ="citation"> ${quote.citation}</span>`;
+  }
+  if (quote.year) {
+    quoteToPrint += `<span class ="year"> ${quote.year}</span>`;
+  }
+  if (quote.tag) {
+    quoteToPrint += `<span class ="tag"> ${quote.tag}</span>`
+  }                    
+  document.getElementById('quote-box').innerHTML = quoteToPrint;           
 }
 
 
