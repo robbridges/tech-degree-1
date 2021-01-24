@@ -87,7 +87,9 @@ const randomBackGroundColor = () => {
 /***
  * `printQuote` function
 ***/
+
 const printQuote = () => {
+  
   
   randomBackGroundColor();
   quote = getRandomQuote(quotes); // gets a random quote by using our getRandomQuote method on the quotes array. 
@@ -113,10 +115,11 @@ const printQuote = () => {
   quoteToPrint +=`</p>`;
                      
   document.getElementById('quote-box').innerHTML = quoteToPrint;
-           
+  
+          
 }
-// calls the print quote function every 25 seconds this also changes
-const timer = setInterval(printQuote, 2500);
+setInterval(printQuote, 4500) // calls the print quote function every 25 seconds this also changes
+
 
 
 
