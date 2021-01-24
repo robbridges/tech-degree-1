@@ -29,7 +29,7 @@ const quotes = [
     tag: "Motivational"
   },
   {
-    quote: "Yesterday, upon the stair, I met a man who wasn't there! He wasn't there again today. OH how I wish he'd go away!",
+    quote: "Yesterday, upon the stairs, I met a man who wasn't there! He wasn't there again today. Oh how I wish he'd go away!",
     source: "William Hughes Mearns",
     citation: "Antigonish",
     year: 1899,
@@ -88,6 +88,7 @@ const randomBackGroundColor = () => {
  * `printQuote` function
 ***/
 const printQuote = () => {
+  
   randomBackGroundColor();
   quote = getRandomQuote(quotes); // gets a random quote by using our getRandomQuote method on the quotes array. 
   // setting up the quote to return in a string literal
@@ -112,9 +113,15 @@ const printQuote = () => {
   quoteToPrint +=`</p>`;
                      
   document.getElementById('quote-box').innerHTML = quoteToPrint;
-             
+           
 }
-setInterval(printQuote, 5000); // calls the print quote function every 50 seconds this also changes
+// calls the print quote function every 25 seconds this also changes
+const timer = setInterval(printQuote, 2500);
+
+const resetInterval = () => {
+  clearInterval(timer);
+  const timer = setInterval(printQuote, 2500);
+}
 
 
 
