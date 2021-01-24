@@ -118,10 +118,7 @@ const printQuote = () => {
 // calls the print quote function every 25 seconds this also changes
 const timer = setInterval(printQuote, 2500);
 
-const resetInterval = () => {
-  clearInterval(timer);
-  const timer = setInterval(printQuote, 2500);
-}
+
 
 
 
