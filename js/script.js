@@ -90,10 +90,16 @@ const randomBackGroundColor = () => {
 const printQuote = () => {
   randomBackGroundColor();
   quote = getRandomQuote(quotes); // gets a random quote by using our getRandomQuote method on the quotes array. 
-  
-  let quoteToPrint = `<p class="quote"> ${quote.quote} </p>
-                      <p class="source"> ${quote.source}`;
-
+  // setting up the quote to return in a string literal
+  let quoteToPrint = `
+  <p class="quote">${quote.quote}</p>
+  <p class="source">${quote.source}
+  `;
+  /*
+  The 3 statements below check to see if the tag exists in the quote, really appreciated how simple javascript made it to check see, since null also equals false if the property we're
+  checking for is in the quote object we can add it, if not, nothing is added we simply move on to check the next property, Finally adding the closing <p> tag after checking if all 
+  spans have been added
+  */
   if (quote.citation) {
     quoteToPrint += `<span class ="citation"> ${quote.citation}</span>`;
   }
@@ -101,11 +107,13 @@ const printQuote = () => {
     quoteToPrint += `<span class ="year"> ${quote.year}</span>`;
   }
   if (quote.tag) {
-    quoteToPrint += `<span class ="tag"> ${quote.tag}</span>`
-  }                    
-  document.getElementById('quote-box').innerHTML = quoteToPrint;           
+    quoteToPrint += `<span class ="tag"> ${quote.tag}</span>`; 
+  }
+  `</p> `                   
+  document.getElementById('quote-box').innerHTML = quoteToPrint;
+             
 }
-
+setInterval(printQuote, 5000); // calls the print quote function every 50 seconds this also changes
 
 
 
