@@ -65,6 +65,7 @@ This method is also built to scale, so that it grows with the quotes array size.
 
 */
 const getRandomQuote = quotesArray => {
+  
   return quotes[Math.floor(Math.random() * quotes.length)];
   
 }
